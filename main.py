@@ -10,8 +10,10 @@ from os.path import isfile, join
 import requests
 import codecs
 import csv
-import apiRequests.querries as querries
 import time
+
+import apiRequests.querries as querries
+import config
 
 _CACHEPATH = os.path.join(os.getcwd(), "cache")
 reload(logging)
@@ -20,10 +22,11 @@ logging.basicConfig(filename="logs.log", filemode="w",
 
 
 def main():
-    starting_time = time.time()
     print("Starting the script...")
     avatars_path = os.path.join(os.getcwd(), "avatars")
 
+    config.read_config()
+    starting_time = time.time()
     get_avatars(avatars_path)
     change_extensions_to_png(avatars_path)
     print(f"Finished in {round((time.time() - starting_time) * 100) / 100} seconds.")

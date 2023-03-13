@@ -3,3 +3,7 @@
 /cache/
 /build/
 /.idea/
+/avatars/
+/config.cfg
+/logs.log
+/usernames.csv
